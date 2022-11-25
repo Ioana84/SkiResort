@@ -21,7 +21,7 @@ public class DomainController {
      * Get all domains
      */
     @GetMapping
-    public ResponseEntity<List<Domain>> getDomainById() {
+    public ResponseEntity<List<Domain>> getAllDomains() {
         List<Domain> domains = domainRepository.findAll();
         return new ResponseEntity<>(domains, HttpStatus.OK);
     }
