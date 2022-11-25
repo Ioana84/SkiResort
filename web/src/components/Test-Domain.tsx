@@ -20,6 +20,7 @@ export default function TestDomain(): ReactElement {
                 return (
                     <React.Fragment key={i}>
                         <p>Domain Name: {d.domainName} </p>
+                        <p>Domain Description: {d.domainDescription} </p>
                         <p>Country: {d.country} </p>
                     </React.Fragment>
                 )
