@@ -6,24 +6,18 @@ import {BackendClient} from '../service/httpClients/index'
 export default function TestDomain(): ReactElement {
     const [data, initData] = useState<Domain[]>()
     
-    const getDomains =  async (): Promise<Domain[]> => {
-        return (await BackendClient.Domain.getAll()).data
+    const getDomains =  async () => {
+        initData((await BackendClient.Domain.getAll()).data);
     }
 
     useEffect(() => {
         getDomains()
-            .then((res: Domain[]) => initData(res))
             .catch( (e) => console.log(e))
       }, [])
 
     return (
-        // id?: number,
-        // domainLength?: number,
-        // domainName?: string,
-        // domainDescription?: string,
-        // country?: string
         <div>
-            {data?.map((d, idx) => {
+            {data?.map(d => {
                 return (
                     <div>
                         <p>Domain Name: {d.domainName} </p>
