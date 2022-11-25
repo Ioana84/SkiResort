@@ -7,7 +7,7 @@ export default function TestDomain(): ReactElement {
     const [data, initData] = useState<Domain[]>()
     
     const getDomains =  async () => {
-        initData((await BackendClient.Domain.getAll()).data);
+        initData((await BackendClient.Domain.getAll()));
     }
 
     useEffect(() => {

@@ -1,5 +1,4 @@
 import { Domain } from "domain";
-import { HttpResponse } from "../../../types/http";
 import { GenericClient } from "../../generic-client";
 
 export default class DomainClient extends GenericClient<Domain> {
@@ -9,7 +8,7 @@ export default class DomainClient extends GenericClient<Domain> {
    * @param id 
    * @returns Domain
    */
-  public async getByDomanId(id: number): Promise<HttpResponse<Domain>> {
+  public async getByDomanId(id: number): Promise<Domain> {
     return await this.get(id);
   }
 }
