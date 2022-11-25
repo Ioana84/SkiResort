@@ -59,7 +59,7 @@ public class DomainController {
      */
     @DeleteMapping("/{domainName}")
     public ResponseEntity deleteDomain(@PathVariable ("domainName") String domainName) {
-         domainRepository.delete(domainName);
+         domainRepository.deleteByName(domainName);
          return new ResponseEntity(HttpStatus.ACCEPTED);
 
     }
