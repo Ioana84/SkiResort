@@ -7,7 +7,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 import space.skiresorts.model.Domain;
 
-import java.util.List;
 import java.util.Optional;
 
 public interface DomainRepository extends JpaRepository<Domain, Long>{
