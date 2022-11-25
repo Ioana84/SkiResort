@@ -20,7 +20,7 @@ public class Domain {
     private String domainName;
     private String domainDescription;
     private int domainAltitude;
-    @OneToMany (mappedBy="domains")
+    @OneToMany (mappedBy="domain")
     private Set<Slope> slopes;
     private String country; //TODO : sa fie enum
 
