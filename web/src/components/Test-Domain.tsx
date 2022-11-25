@@ -9,7 +9,6 @@ export default function TestDomain(): ReactElement {
     const getDomains =  async () => {
         initData((await BackendClient.Domain.getAll()));
     }
-
     useEffect(() => {
         getDomains()
             .catch( (e) => console.log(e))
@@ -17,12 +16,12 @@ export default function TestDomain(): ReactElement {
 
     return (
         <div>
-            {data?.map(d => {
+            {data?.map((d,i) => {
                 return (
-                    <div>
+                    <React.Fragment key={i}>
                         <p>Domain Name: {d.domainName} </p>
                         <p>Country: {d.country} </p>
-                    </div>
+                    </React.Fragment>
                 )
             })}
         </div>
