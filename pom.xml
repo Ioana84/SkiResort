@@ -13,9 +13,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>skiresorts</name>
 	<description>RESTfull API for skiresorts</description>
-	<properties>
-		<app.profiles>local</app.profiles>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
