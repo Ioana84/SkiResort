@@ -30,7 +30,7 @@ function NavBar() {
   // };
 
   const onClickHandler = (page: string) => {
-    navigate('/'+ page.toLowerCase())
+    navigate(page.toLowerCase())
   }
 
   const handleCloseUserMenu = () => {
@@ -46,7 +46,7 @@ function NavBar() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            onClick={() => onClickHandler('/')}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },

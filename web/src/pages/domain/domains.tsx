@@ -1,7 +1,13 @@
+import { styled } from '@mui/material/styles';
 import React, { useEffect, useState } from 'react';
 import DomainElement from '../../components/DomainElement';
 import { BackendClient } from '../../service/httpClients';
 import Domain from '../../types/domain';
+
+const StyledDomains = styled('div')(() => ({
+  float:'left',
+  display:'flex'
+}));
 
 function Domains() {
   const [data, initData] = useState<Domain[]>()
@@ -14,11 +20,11 @@ function Domains() {
             .catch( (e) => console.log(e))
       }, [])
   return (
-    <div>
+    <StyledDomains>
       {data?.map((domain,index) => {
         return <DomainElement key={index} data={domain}/>
       })}
-    </div>
+    </StyledDomains>
   );
 }
 
