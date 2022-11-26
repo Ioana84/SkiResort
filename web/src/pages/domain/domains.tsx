@@ -1,7 +1,7 @@
 import React from 'react';
 import TestDomain from '../../components/Test-Domain';
 
-function Domain() {
+function Domains() {
   return (
     <div>
         <TestDomain></TestDomain>
@@ -9,4 +9,4 @@ function Domain() {
   );
 }
 
-export default Domain;
+export default Domains;
