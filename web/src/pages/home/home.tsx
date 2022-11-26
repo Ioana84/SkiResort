@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import TestDomain from '../../components/Test-Domain';
 
 const StyledDescription = styled('div')(() => ({
     fontSize: 24,
@@ -15,12 +14,14 @@ const HomeContainer = styled('div')(() => ({
 }));
 
 function Home() {
+    console.log()
+    const bau = 'bau'
   return (
     <HomeContainer>
         <Styledh1>Website title here (see comment below)</Styledh1>
         <StyledDescription> this is the home page and description can be added here but this is the old way, 
-            I think the new way will be to have some relevant information like some pictures and number of domains indexed</StyledDescription>
-    <TestDomain></TestDomain>
+            I think the new way will be to have some relevant information like some pictures or number of domains indexed etc.</StyledDescription>
+        <div>{bau}</div>
     </HomeContainer>
   );
 }

@@ -28,7 +28,7 @@ function NavBar() {
   // };
 
   const onClickHandler = () => {
-    console.log("Clicked")
+    
   }
 
   const handleCloseUserMenu = () => {
