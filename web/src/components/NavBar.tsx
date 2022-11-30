@@ -15,7 +15,7 @@ import SearchBar from './SearhBar';
 import { useNavigate } from "react-router-dom";
 
 const pages = ['Domains', 'Slopes'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Login', 'Logout'];
 
 function NavBar() {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
