@@ -13,13 +13,16 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import SearchBar from './SearhBar';
 import { useNavigate } from "react-router-dom";
+import { useGoogleLogin } from '@react-oauth/google';
+import { useEffect, useState} from 'react';
 
 const pages = ['Domains', 'Slopes'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Login', 'Profile', 'Account', 'Dashboard', 'Logout'];
 
 function NavBar() {
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
   const navigate = useNavigate();
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  const [user, setUser] = useState ({})
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -33,9 +36,18 @@ function NavBar() {
     navigate(page.toLowerCase())
   }
 
-  const handleCloseUserMenu = () => {
+  const login = useGoogleLogin({
+    onSuccess: tokenResponse => console.log(tokenResponse),
+  });
+
+  const handleCloseUserMenu = (button: string) => {
     setAnchorElUser(null);
+    if (button === 'Login') {
+      login();
+    }
   };
+
+
 
   return (
     <AppBar position="static">
@@ -97,7 +109,7 @@ function NavBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={()=> handleCloseUserMenu(setting)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
