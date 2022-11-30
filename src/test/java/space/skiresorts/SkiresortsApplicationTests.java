@@ -3,10 +3,10 @@ package space.skiresorts;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class SkiresortsApplicationTests {
 
-	@Test
+//	@Test
 	void contextLoads() {
 	}
 
