@@ -12,12 +12,14 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import SearchBar from './SearhBar';
+import { useNavigate } from "react-router-dom";
 
 const pages = ['Domains', 'Slopes'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function NavBar() {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+  const navigate = useNavigate();
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
@@ -27,8 +29,8 @@ function NavBar() {
   //   setAnchorElNav(null);
   // };
 
-  const onClickHandler = () => {
-    console.log("Clicked")
+  const onClickHandler = (page: string) => {
+    navigate(page.toLowerCase())
   }
 
   const handleCloseUserMenu = () => {
@@ -44,7 +46,7 @@ function NavBar() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            onClick={() => onClickHandler('/')}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -62,7 +64,7 @@ function NavBar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={onClickHandler}
+                onClick={() => onClickHandler(page)}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
