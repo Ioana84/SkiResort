@@ -5,7 +5,7 @@ import GLoginButton from './GLoginButton';
 const settings = ['login']
 
 function UserMenu() {
-    const isUser = true;
+    const isUser = false;
     const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
