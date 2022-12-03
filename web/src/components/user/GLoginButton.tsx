@@ -1,30 +1,33 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import { Button } from "@mui/material";
+import { GOOGLE_ACCOUNT_ID } from "../../utils/constants";
 
-const client_id: string = process.env.REACT_APP_GOOGLE_ACCOUT_ID;
 
-function GLoginButton(): JSX.Element {
+const client_id: string = GOOGLE_ACCOUNT_ID;
+
+function GLoginButton(): ReactElement {
   const [user, setUser] = useState ({})
-  const kk = Object.keys(user).length;
 
   const handleCallBackResponse = (response) => {
-    console.log('sign in = ', user)
+
+    console.log(response.credential)
     setUser(jwt_decode(response.credential));
     document.getElementById("signInDiv")!.hidden = true;
   }
+  
   const handleSignOut = () => {
     setUser({});
     document.getElementById("signInDiv")!.hidden = false;
   }
 
   useEffect (()=>{
-    window.google!.accounts.id.initialize({
+    (window as any).google.accounts.id.initialize({
       client_id: client_id,
       callback: handleCallBackResponse
     })
     console.log(user);
-    window.google!.accounts.id.renderButton(
+    (window as any).google!.accounts.id.renderButton(
       document.getElementById("signInDiv"),
       {theme: "outline", size: "large"}
     )
@@ -35,24 +38,15 @@ function GLoginButton(): JSX.Element {
   });
 
   return (
-  // <div>
-  //     <div id="signInDiv"></div>
-  //       {Object.keys(user).length !== 0 &&
-  //       <button onClick={(e)=> handleSignOut()}>Sign Out</button>
-  //       }
-  //       {user &&
-  //     <div> 
-  //       <img src = {user.picture!}></img>
-  //       <h3>{user.name!}</h3>
-  //     </div>}
-  // </div>
   <div>
     {
       user ? 
       <Button 
-        // id="signInDiv"
+        id="signInDiv"
         onClick={(event) => {handleCallBackResponse(event)}}
-        color="inherit">
+        color="inherit"
+        fullWidth
+      >
         Login
       </Button> :
       <Button onClick={(e)=> handleSignOut()}>Sign Out</Button>

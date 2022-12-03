@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import VideoElement from '../../components/VideoElement';
 
 const StyledDescription = styled('div')(() => ({
     fontSize: 24,
 }));
 
 const Styledh1 = styled('h1')(() => ({
-    fontSize: 24
+    fontSize: 24,
+    textAlign: 'center'
 }));
 
 function Home() {

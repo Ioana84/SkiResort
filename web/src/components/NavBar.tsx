@@ -13,7 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import SearchBar from './SearhBar';
 import { useNavigate } from "react-router-dom";
-import UserMenu from './user/UserMenu';
+import UserProfile from './user/UserProfile';
 
 const pages = ['Domains', 'Slopes'];
 
@@ -58,11 +58,8 @@ function NavBar() {
               </Button>
             ))}
           </Box>
-
           <SearchBar />
-
-          <UserMenu/>
-
+          <UserProfile/>
         </Toolbar>
       </Container>
     </AppBar>
